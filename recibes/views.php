@@ -4,6 +4,7 @@ require_once("links.php");
 class Views { 
 
     public function __construct($pgObj) {
+       $pgObj->breadcrumbs = $this->setBreadCrumbs($pgObj);
        $this->pgObj = $pgObj;
     }
 
@@ -128,6 +129,22 @@ class Views {
         header('Access-Control-Allow-Origin: *');
         echo json_encode($tpl);
     }
+
+    public function setBreadCrumbs($pgObj) {
+        if ($pgObj->view == "index") {
+            $bc = 'Home';
+        } else {
+            $bc = '<a href="/">Home</a>';
+            if ($pgObj->view == "items") {
+                $bc .= ' &gt; Recipes';
+            } else {
+                $bc .= ' &gt; <a href="/recipe/all">Recipes</a>';
+            }
+            if ($pgObj->view == "item") $bc .= ' &gt; Recipe';
+        }
+        return $bc;
+    }
+
 }
 
 

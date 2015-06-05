@@ -23,33 +23,12 @@ $urls = array(
 );
 
 $pathObj = new PathParser($urls);
-if (!@$pathObj->view) {
-    $pathObj->view = "error";
-}
-$pathObj->breadcrumbs = setBreadCrumbs($pathObj);
-
+if (!@$pathObj->view) $pathObj->view = "error";
 $views = new Views($pathObj);
 $view = $pathObj->view;
-
 $views->$view();
-
 exit();
 
 
-function setBreadCrumbs($pathObj) {
-    if ($pathObj->view == "index") {
-        $bc = 'Home';
-    } else {
-        $bc = '<a href="/">Home</a>';
-        if ($pathObj->view == "items") {
-            $bc .= ' &gt; Recipes';
-        } else {
-            $bc .= ' &gt; <a href="/recipe/all">Recipes</a>';
-        }
-        if ($pathObj->view == "item") $bc .= ' &gt; Recipe';
-    }
-    return $bc;
-}
-
-
 ?>
+

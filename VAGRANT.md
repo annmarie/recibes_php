@@ -19,9 +19,13 @@ RUN VAGRANT
 ===============
 
 vagrant up   - starts vagrant box (first time will take a while)
+
 vagrant reload  - reinitialize the box
+
 vagrant destroy  - destorys the box
+
 vagrant halt - shutdown the box
+
 vagrant ssh - ssh to the box
 
 

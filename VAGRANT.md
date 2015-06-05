@@ -22,7 +22,7 @@ vagrant up   - starts vagrant box (first time will take a while)
 
 vagrant reload  - reinitialize the box
 
-vagrant destroy  - destorys the box
+vagrant destroy  - destroys the box
 
 vagrant halt - shutdown the box
 
